@@ -8,10 +8,18 @@
   },
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.26.1",
+    "connect-mongo": "^4.6.0",
+    "connect-mongodb-session": "^3.1.1",
+    "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
     "express-ejs-layouts": "^2.5.1",
-    "laravel-mix": "^6.0.43"
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.2",
+    "laravel-mix": "^6.0.43",
+    "mongoose": "^6.2.5",
+    "noty": "^3.2.0-beta-deprecated"
   },
   "devDependencies": {
     "nodemon": "^2.0.15",
