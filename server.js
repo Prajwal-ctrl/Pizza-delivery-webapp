@@ -8,9 +8,17 @@ const expressLayout = require("express-ejs-layouts");
 const PORT = process.env.PORT || 3300;
 //importing mongoose
 const mongoose = require("mongoose");
-const flash = require("express-flash");
 const session = require("express-session");
+const flash = require("express-flash");
 const MongoDbStore = require("connect-mongo");
+const passport = require('passport');
+
+
+
+
+
+
+// import * as expressSession from "express-session";
 
 // database connection :
 
@@ -28,6 +36,26 @@ connection
     console.log(`OH NO! MONGO CONNECTION ERROR!`);
     console.log(err);
   });
+
+
+
+
+
+
+//app.use(flash()); // use connect-flash for flash messages stored in session
+
+
+// app.use(express.session({ secret: 'SECRET' })); // session secret
+  // app.use(passport.initialize());
+  // app.use(passport.session()); // persistent login sessions
+  // app.use(flash()); // use connect-flash for flash messages stored in session
+
+
+
+
+
+
+
 
 //session store in mongodb using mongoose :
 let mongoStore = MongoDbStore.create({
@@ -47,14 +75,32 @@ app.use(
   })
 );
 
+
+//passport config : 
+
+const passportInit = require("./app/config/passport");
+passportInit(passport);
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
+
+
 app.use(flash());
 // rendering home.html/ejs page to the / i.e home page
 app.use(express.static("public"));
+
+//To get data from express in URL form 
+app.use(express.urlencoded({extended:false}))
+
+//To get data from express in json form 
 app.use(express.json());
 //global middleware :
 
 app.use((req, res, next) => {
   res.locals.session = req.session;
+  res.locals.user = req.user 
   next();
 });
 
