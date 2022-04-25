@@ -58,36 +58,42 @@
           ><%=session.cart.totalPrice %></span
         >
       </div>
-
+<% if (user) {  %>
       <div>
-        <form action="" class="mt-12">
-          <input
+        <form action="/orders" method="POST" class="mt-12">
+          <input name = "phone"
             class="border border-gray-400 p-2 w-1/2 mb-4"
             type="text"
             placeholder="Phone number"
+
           />
+
+
           <input
+          name = "address"
             class="border border-gray-400 p-2 w-1/2 mb-4"
             type="text"
             placeholder="Address"
           />
 
           <div>
-            <!-- <button -->
-            <!-- class="btn-primary px-6 py-2 rounded-full text white font bold mt-6" -->
-            <!-- type="submit" -->
-            <!-- > -->
-            <!-- Order Now -->
-            <!-- </button> -->
+            <button
+            class="btn-primary px-6 py-2 rounded-full text-white bg-[#FE5F1E] hover:bg-[#b23301]/80 font bold mt-6"
+            type="submit"
+            >
+            Order Now
+            </button>
           </div>
         </form>
       </div>
-
+<% } else { %>
       <a
-        href=""
+        href="/login"
         class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text white font bold mt-6"
         >Login to continue</a
       >
+
+<% } %>
     </div>
   </div>
 <% } else{ %>

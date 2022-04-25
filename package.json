@@ -2,6 +2,7 @@
   "name": "pizzapp",
   "version": " ",
   "main": "index.js",
+  
   "scripts": {
     "serv": "nodemon server.js",
     "dev": "nodemon server.js"
@@ -22,6 +23,7 @@
     "express-flash": "^0.0.2",
     "express-session": "^1.17.2",
     "laravel-mix": "^6.0.43",
+    "moment": "^2.29.1",
     "mongoose": "^6.2.5",
     "noty": "^3.2.0-beta-deprecated",
     "passport": "0.4.1",
